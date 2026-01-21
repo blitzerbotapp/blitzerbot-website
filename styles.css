@@ -435,6 +435,7 @@ body {
     height: 40px;
 }
 
+.feature-card h2,
 .feature-card h3 {
     font-size: 24px;
     font-weight: 700;
@@ -497,6 +498,7 @@ body {
     letter-spacing: 0.5px;
 }
 
+.feature-showcase-content h2,
 .feature-showcase-content h3 {
     font-size: 36px;
     font-weight: 800;
