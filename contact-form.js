@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             subject: emailSubject,
                             message: emailBody,
                             to_email_1: 'info@blitzerbot.com',
-                            to_email_2: 'info@laionex.com',
+                            to_email_2: 'info@blitzerbot.com',
                             topic: formData.topic
                         };
                         
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // Fallback: Use mailto link
-            const recipients = 'info@blitzerbot.com,info@laionex.com';
+            const recipients = 'info@blitzerbot.com';
             const encodedSubject = encodeURIComponent(emailSubject);
             const encodedBody = encodeURIComponent(emailBody);
             
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
         } catch (error) {
             console.error('Form submission error:', error);
-            errorMessageText.textContent = 'Es ist ein Fehler aufgetreten. Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail an info@laionex.com';
+            errorMessageText.textContent = 'Es ist ein Fehler aufgetreten. Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail an info@blitzerbot.com';
             errorMessage.style.display = 'flex';
             submitBtn.disabled = false;
             btnText.style.display = 'block';
