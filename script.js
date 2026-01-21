@@ -92,6 +92,22 @@ document.querySelectorAll('.stat-item').forEach(el => {
     observer.observe(el);
 });
 
+// Fallback: Animate counters immediately if they're already visible
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if stats are already visible and animate them
+    setTimeout(() => {
+        document.querySelectorAll('.stat-number').forEach(statEl => {
+            if (!statEl.dataset.animated) {
+                const target = parseInt(statEl.dataset.target);
+                if (target > 0) {
+                    statEl.dataset.animated = 'true';
+                    animateCounter(statEl, target);
+                }
+            }
+        });
+    }, 500);
+});
+
 // Navbar scroll effect
 let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
