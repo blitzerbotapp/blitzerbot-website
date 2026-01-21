@@ -96,17 +96,18 @@ document.addEventListener('DOMContentLoaded', () => {
             message: messageInput.value.trim()
         };
         
-        // Prepare data for Formspree
+        // Prepare data for FormSubmit
         const formDataToSend = new FormData();
         formDataToSend.append('name', `${formData.firstName}${formData.lastName ? ' ' + formData.lastName : ''}`);
         formDataToSend.append('email', formData.email);
         formDataToSend.append('subject', `[${formData.topic}] Nachricht von ${formData.firstName}${formData.lastName ? ' ' + formData.lastName : ''}`);
         formDataToSend.append('message', `Thema: ${formData.topic}\n\nNachricht:\n${formData.message}\n\n---\nDiese Nachricht wurde über die BlitzerBot Website gesendet.`);
         formDataToSend.append('_replyto', formData.email);
-        formDataToSend.append('_subject', `[${formData.topic}] BlitzerBot Kontaktformular`);
+        formDataToSend.append('_next', window.location.href);
+        formDataToSend.append('_captcha', 'false');
         
         try {
-            const response = await fetch('https://formspree.io/f/xpwnqjvd', {
+            const response = await fetch('https://formsubmit.co/info@blitzerbot.com', {
                 method: 'POST',
                 body: formDataToSend,
                 headers: {
