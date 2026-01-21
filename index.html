@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlitzerBot - Sicherer fahren. Mehr Zeit sparen.</title>
+    <meta name="description" content="BlitzerBot warnt dich rechtzeitig vor Blitzern, Baustellen und Verkehrskontrollen. Die #1 App für sichere Fahrten.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="assets/blitzerbot-logo.png" alt="BlitzerBot Logo" class="logo-img">
+                    <span class="logo-text">BlitzerBot</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#reviews">Bewertungen</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#support">Support</a>
+                    <a href="#download" class="btn-primary-small">Jetzt herunterladen</a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+            <div class="stars"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>Vertraut von über 1M+ Fahrern</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Sicherer fahren.</span>
+                    <span class="title-line">Mehr Zeit sparen.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    BlitzerBot warnt dich rechtzeitig vor Blitzern, Baustellen und Verkehrskontrollen. 
+                    Die #1 App für sichere Fahrten mit Echtzeit-Updates.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="95">0</div>
+                        <div class="stat-label">% Zufriedenheit</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="500000">0</div>
+                        <div class="stat-label">Aktive Nutzer</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="89">0</div>
+                        <div class="stat-label">% Erfolgsrate</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn-download ios">
+                        <img src="assets/apple-icon.svg" alt="App Store">
+                        <div>
+                            <span class="btn-label">Download für</span>
+                            <span class="btn-platform">App Store</span>
+                        </div>
+                    </a>
+                    <a href="#download" class="btn-download android">
+                        <img src="assets/google-play-icon.svg" alt="Google Play">
+                        <div>
+                            <span class="btn-label">Download für</span>
+                            <span class="btn-platform">Google Play</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-mockup">
+                        <img src="mockups/1.jpg" alt="BlitzerBot App Screenshot" class="mockup-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-content">
+                <p class="problem-text">
+                    Jeden Tag werden tausende Fahrer von Blitzern erwischt, verlieren Zeit in Staus 
+                    und werden von unerwarteten Verkehrskontrollen überrascht. Das führt zu Geldstrafen, 
+                    Stress und verschwendeter Zeit.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Wie BlitzerBot dir hilft</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Live-Karte</h3>
+                    <p>Sieh alle Meldungen in Echtzeit auf einer übersichtlichen Karte. Blitzer, Baustellen und Verkehrskontrollen werden dir sofort angezeigt.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Meldungen hinzufügen</h3>
+                    <p>Teile Radar, Baustellen und Verkehrskontrollen mit der Community. Jede Meldung hilft anderen Fahrern sicherer zu fahren.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 8A6 6 0 0 0 6 8C6 11 3 13 3 16C3 18.2091 4.79086 20 7 20H17C19.2091 20 21 18.2091 21 16C21 13 18 11 18 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Echtzeit-Updates</h3>
+                    <p>Erhalte sofortige Benachrichtigungen für neue Meldungen in deiner Nähe. Nie wieder unerwartete Blitzer oder Staus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Features Detail -->
+    <section class="app-features" id="features">
+        <div class="container">
+            <h2 class="section-title">Entdecke die Features</h2>
+            <div class="features-showcase">
+                <div class="feature-showcase-item">
+                    <div class="feature-showcase-content">
+                        <div class="feature-badge">TAP TO LEARN MORE</div>
+                        <h3>Live-Karte</h3>
+                        <p>Sieh alle Meldungen in Echtzeit auf einer übersichtlichen Karte. Blitzer, Baustellen und Verkehrskontrollen werden dir sofort angezeigt.</p>
+                    </div>
+                    <div class="feature-showcase-image">
+                        <img src="mockups/2.jpg" alt="BlitzerBot Live-Karte">
+                    </div>
+                </div>
+                <div class="feature-showcase-item reverse">
+                    <div class="feature-showcase-content">
+                        <div class="feature-badge">TAP TO LEARN MORE</div>
+                        <h3>Community</h3>
+                        <p>Verbinde dich mit anderen Fahrern auf derselben Reise. Teile Erfahrungen, tausche Tipps, feiere Erfolge und finde Ermutigung von anderen, die ähnliche Ziele verfolgen.</p>
+                    </div>
+                    <div class="feature-showcase-image">
+                        <img src="mockups/3.jpg" alt="BlitzerBot Community">
+                    </div>
+                </div>
+                <div class="feature-showcase-item">
+                    <div class="feature-showcase-content">
+                        <div class="feature-badge">TAP TO LEARN MORE</div>
+                        <h3>Meldungen</h3>
+                        <p>Melde Blitzer, Baustellen und Verkehrskontrollen mit nur einem Tippen. Jede Meldung hilft anderen Fahrern sicherer zu fahren.</p>
+                    </div>
+                    <div class="feature-showcase-image">
+                        <img src="mockups/4.jpg" alt="BlitzerBot Meldungen">
+                    </div>
+                </div>
+                <div class="feature-showcase-item reverse">
+                    <div class="feature-showcase-content">
+                        <div class="feature-badge">TAP TO LEARN MORE</div>
+                        <h3>Echtzeit-Warnungen</h3>
+                        <p>Erhalte sofortige Benachrichtigungen für neue Meldungen in deiner Nähe. Nie wieder unerwartete Blitzer oder Staus.</p>
+                    </div>
+                    <div class="feature-showcase-image">
+                        <img src="mockups/5.jpg" alt="BlitzerBot Warnungen">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Was Nutzer über BlitzerBot sagen</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"BlitzerBot macht es viel einfacher, auf Kurs zu bleiben. Die Warnungen haben mir schon mehrmals geholfen."</p>
+                    <div class="review-author">
+                        <div class="review-author-info">
+                            <div class="review-author-name">Michael K.</div>
+                            <div class="review-author-badge">Erster Nutzer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Ich mag die Community. Es fühlt sich gut an zu wissen, dass ich nicht der Einzige bin, der diese App nutzt."</p>
+                    <div class="review-author">
+                        <div class="review-author-info">
+                            <div class="review-author-name">Sarah M.</div>
+                            <div class="review-author-badge">Erster Nutzer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Die App fühlt sich einfach und sauber an. Super einfach zu bedienen, nichts verwirrendes."</p>
+                    <div class="review-author">
+                        <div class="review-author-info">
+                            <div class="review-author-name">Thomas R.</div>
+                            <div class="review-author-badge">Erster Nutzer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Insgesamt wirklich hilfreich. Es hält mich fokussiert, macht die Warnungen weniger überwältigend und fühlt sich wie Unterstützung in der Tasche an."</p>
+                    <div class="review-author">
+                        <div class="review-author-info">
+                            <div class="review-author-name">Lisa W.</div>
+                            <div class="review-author-badge">Erster Nutzer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Der Streak-Tracker ist wirklich motivierend. Die Tage zu sehen, die sich addieren, hält mich am Laufen."</p>
+                    <div class="review-author">
+                        <div class="review-author-info">
+                            <div class="review-author-name">David M.</div>
+                            <div class="review-author-badge">Erster Nutzer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Erlebe lebensverändernde Vorteile</h2>
+            <p class="benefits-subtitle">Entdecke ein gesünderes, fokussierteres und erfüllteres Leben, wenn du sicherer fährst.</p>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <span>Geldstrafen vermeiden</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <span>Mehr Sicherheit im Straßenverkehr</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <span>Zeit sparen durch Stau-Umfahrungen</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <span>Weniger Stress</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <span>Bessere Planung</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <span>Community-Unterstützung</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section" id="download">
+        <div class="container">
+            <h2 class="section-title">Lade BlitzerBot herunter</h2>
+            <p class="download-subtitle">Starte deine Reise mit unserer App und werde die beste Version von dir selbst. Die Vorteile fühlen sich großartig an, vertrau uns - Das BlitzerBot Team</p>
+            <div class="download-buttons">
+                <a href="#" class="btn-download-large ios">
+                    <img src="assets/apple-icon.svg" alt="App Store">
+                    <div>
+                        <span class="btn-label">Download für</span>
+                        <span class="btn-platform">App Store</span>
+                    </div>
+                </a>
+                <a href="#" class="btn-download-large android">
+                    <img src="assets/google-play-icon.svg" alt="Google Play">
+                    <div>
+                        <span class="btn-label">Download für</span>
+                        <span class="btn-platform">Google Play</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Häufig gestellte Fragen</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Was ist die BlitzerBot App?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>BlitzerBot ist eine mobile Anwendung, die Nutzern hilft, sicherer zu fahren. Die App warnt dich rechtzeitig vor Blitzern, Baustellen und Verkehrskontrollen in deiner Nähe. BlitzerBot umfasst Community-Meldungen, Echtzeit-Updates und eine übersichtliche Kartenansicht.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Ist BlitzerBot kostenlos?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>BlitzerBot bietet sowohl eine kostenlose Version mit grundlegenden Features als auch Premium-Funktionen für erweiterte Warnungen und personalisierte Einstellungen.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Wie funktioniert BlitzerBot?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>BlitzerBot nutzt eine Kombination aus Community-Meldungen und Echtzeit-Updates, um dich über Blitzer, Baustellen und Verkehrskontrollen zu informieren. Die App zeigt alle Meldungen auf einer übersichtlichen Karte an und sendet dir Benachrichtigungen für neue Meldungen in deiner Nähe.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Welche Features bietet BlitzerBot?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>BlitzerBot bietet eine Live-Karte mit Echtzeit-Meldungen, die Möglichkeit, selbst Meldungen hinzuzufügen, Echtzeit-Benachrichtigungen, Community-Unterstützung und personalisierte Warnungen basierend auf deinem Fahrverhalten.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="support">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/blitzerbot-logo.png" alt="BlitzerBot Logo" class="logo-img">
+                        <span class="logo-text">BlitzerBot</span>
+                    </div>
+                    <p class="footer-tagline">Die führende App zum Vermeiden von Blitzern.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="#about">Über uns</a></li>
+                        <li><a href="#support">Support</a></li>
+                        <li><a href="#privacy">Datenschutz</a></li>
+                        <li><a href="#terms">AGB</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Social Media</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                        <a href="#" aria-label="Facebook">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BlitzerBot. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
