@@ -34,13 +34,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("YOUR_PUBLIC_KEY"); // Wird später konfiguriert
-        })();
-    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -75,7 +68,7 @@
                 
                 <div class="contact-wrapper">
                     <div class="contact-form-container">
-                        <form id="contactForm" class="contact-form">
+                        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xpwnqjvd" method="POST">
                             <div class="form-header">
                                 <h2>Wir freuen uns auf deine Nachricht!</h2>
                                 <p class="form-subtitle">Fülle das Formular aus und wir melden uns schnellstmöglich bei dir.</p>

@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return isValid;
     }
     
-    // Form submission
+    // Form submission with Formspree
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -84,6 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         btnText.style.display = 'none';
         btnLoader.style.display = 'flex';
         
+        // Hide previous messages
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+        
         const formData = {
             firstName: firstNameInput.value.trim(),
             lastName: document.getElementById('lastName').value.trim(),
@@ -92,79 +96,39 @@ document.addEventListener('DOMContentLoaded', () => {
             message: messageInput.value.trim()
         };
         
-        // Compose email body
-        const emailBody = `Hallo,\n\n` +
-            `Nachricht über das BlitzerBot Kontaktformular:\n\n` +
-            `Name: ${formData.firstName}${formData.lastName ? ' ' + formData.lastName : ''}\n` +
-            `E-Mail: ${formData.email}\n` +
-            `Thema: ${formData.topic}\n\n` +
-            `Nachricht:\n${formData.message}\n\n` +
-            `---\n` +
-            `Diese Nachricht wurde über die BlitzerBot Website gesendet.`;
-        
-        const emailSubject = `[${formData.topic}] Nachricht von ${formData.firstName}${formData.lastName ? ' ' + formData.lastName : ''}`;
+        // Prepare data for Formspree
+        const formDataToSend = new FormData();
+        formDataToSend.append('name', `${formData.firstName}${formData.lastName ? ' ' + formData.lastName : ''}`);
+        formDataToSend.append('email', formData.email);
+        formDataToSend.append('subject', `[${formData.topic}] Nachricht von ${formData.firstName}${formData.lastName ? ' ' + formData.lastName : ''}`);
+        formDataToSend.append('message', `Thema: ${formData.topic}\n\nNachricht:\n${formData.message}\n\n---\nDiese Nachricht wurde über die BlitzerBot Website gesendet.`);
+        formDataToSend.append('_replyto', formData.email);
+        formDataToSend.append('_subject', `[${formData.topic}] BlitzerBot Kontaktformular`);
         
         try {
-            // Try EmailJS first (if configured)
-            if (typeof emailjs !== 'undefined' && emailjs.init) {
-                try {
-                    // EmailJS configuration
-                    // NOTE: User needs to configure EmailJS with their public key
-                    // Replace 'YOUR_PUBLIC_KEY', 'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID' with actual values
-                    const serviceId = 'YOUR_SERVICE_ID';
-                    const templateId = 'YOUR_TEMPLATE_ID';
-                    
-                    if (serviceId !== 'YOUR_SERVICE_ID' && templateId !== 'YOUR_TEMPLATE_ID') {
-                        const templateParams = {
-                            from_name: `${formData.firstName}${formData.lastName ? ' ' + formData.lastName : ''}`,
-                            from_email: formData.email,
-                            subject: emailSubject,
-                            message: emailBody,
-                            to_email_1: 'info@blitzerbot.com',
-                            to_email_2: 'info@blitzerbot.com',
-                            topic: formData.topic
-                        };
-                        
-                        await emailjs.send(serviceId, templateId, templateParams);
-                        
-                        // Success
-                        successMessage.style.display = 'flex';
-                        form.reset();
-                        clearErrors();
-                        submitBtn.disabled = false;
-                        btnText.style.display = 'block';
-                        btnLoader.style.display = 'none';
-                        
-                        // Scroll to success message
-                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        return;
-                    }
-                } catch (emailjsError) {
-                    console.error('EmailJS error:', emailjsError);
-                    // Fall through to mailto fallback
+            const response = await fetch('https://formspree.io/f/xpwnqjvd', {
+                method: 'POST',
+                body: formDataToSend,
+                headers: {
+                    'Accept': 'application/json'
                 }
-            }
+            });
             
-            // Fallback: Use mailto link
-            const recipients = 'info@blitzerbot.com';
-            const encodedSubject = encodeURIComponent(emailSubject);
-            const encodedBody = encodeURIComponent(emailBody);
-            
-            const mailtoLink = `mailto:${recipients}?subject=${encodedSubject}&body=${encodedBody}`;
-            
-            // Open mailto link
-            window.location.href = mailtoLink;
-            
-            // Show success message after a delay
-            setTimeout(() => {
+            if (response.ok) {
+                // Success
                 successMessage.style.display = 'flex';
                 form.reset();
                 clearErrors();
                 submitBtn.disabled = false;
                 btnText.style.display = 'block';
                 btnLoader.style.display = 'none';
+                
+                // Scroll to success message
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 500);
+            } else {
+                const data = await response.json();
+                throw new Error(data.error || 'Form submission failed');
+            }
             
         } catch (error) {
             console.error('Form submission error:', error);
