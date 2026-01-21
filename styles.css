@@ -34,8 +34,25 @@
     box-sizing: border-box;
 }
 
+/* Prevent horizontal scroll on all elements */
+*,
+*::before,
+*::after {
+    max-width: 100%;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 body {
@@ -44,6 +61,9 @@ body {
     color: var(--primary-text);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -52,6 +72,8 @@ body {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* ============================================
@@ -91,6 +113,12 @@ body {
     width: 60px;
     height: 60px;
     object-fit: contain;
+    display: block;
+}
+
+.logo-img[src=""],
+.logo-img:not([src]) {
+    display: none;
 }
 
 .logo-text {

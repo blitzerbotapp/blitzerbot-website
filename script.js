@@ -92,20 +92,29 @@ document.querySelectorAll('.stat-item').forEach(el => {
     observer.observe(el);
 });
 
-// Fallback: Animate counters immediately if they're already visible
-document.addEventListener('DOMContentLoaded', () => {
-    // Check if stats are already visible and animate them
-    setTimeout(() => {
-        document.querySelectorAll('.stat-number').forEach(statEl => {
-            if (!statEl.dataset.animated) {
-                const target = parseInt(statEl.dataset.target);
-                if (target > 0) {
-                    statEl.dataset.animated = 'true';
-                    animateCounter(statEl, target);
-                }
+// Fallback: Animate counters immediately - works on mobile too
+function initCounters() {
+    document.querySelectorAll('.stat-number').forEach(statEl => {
+        if (!statEl.dataset.animated) {
+            const target = parseInt(statEl.dataset.target);
+            if (target > 0) {
+                statEl.dataset.animated = 'true';
+                animateCounter(statEl, target);
             }
-        });
-    }, 500);
+        }
+    });
+}
+
+// Try multiple times to ensure it works on mobile
+document.addEventListener('DOMContentLoaded', () => {
+    initCounters();
+    setTimeout(initCounters, 300);
+    setTimeout(initCounters, 1000);
+});
+
+// Also try on window load (for slow connections)
+window.addEventListener('load', () => {
+    initCounters();
 });
 
 // Navbar scroll effect
