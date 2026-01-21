@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Kontakt & Support - BlitzerBot</title>
+    <meta name="title" content="Kontakt & Support - BlitzerBot">
+    <meta name="description" content="Kontaktiere das BlitzerBot Team - Wir helfen dir gerne bei Fragen, technischen Problemen oder Feedback zur App.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.blitzerbot.com/kontakt.html">
+    <meta property="og:title" content="Kontakt & Support - BlitzerBot">
+    <meta property="og:description" content="Kontaktiere das BlitzerBot Team - Wir helfen dir gerne bei Fragen, technischen Problemen oder Feedback zur App.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="shortcut icon" href="/assets/favicon-32x32.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.blitzerbot.com/kontakt.html">
+    
+    <!-- Security -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/styles.css?v=3" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("YOUR_PUBLIC_KEY"); // Wird später konfiguriert
+        })();
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <img src="/assets/blitzerbot-logo.png" alt="BlitzerBot - Blitzerwarnungen App Logo" class="logo-img" width="60" height="60">
+                </a>
+                <div class="nav-links">
+                    <a href="/#features">Features</a>
+                    <a href="/#reviews">Bewertungen</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/kontakt.html">Support</a>
+                    <a href="/#download" class="btn-primary-small smart-download-btn">Jetzt herunterladen</a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h1>Kontakt & Support</h1>
+                <p class="contact-intro">Du hast Fragen zu BlitzerBot, ein technisches Problem oder Feedback zur App? Wir helfen dir gerne weiter.</p>
+                
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-header">
+                            <h2>Wir freuen uns auf deine Nachricht!</h2>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="firstName">Vorname *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Dein Vorname" class="form-input">
+                            <span class="error-message" id="firstNameError"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Nachname</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Dein Nachname (optional)" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-Mail *</label>
+                            <input type="email" id="email" name="email" required placeholder="E-Mail-Adresse" class="form-input">
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="topic">Thema</label>
+                            <select id="topic" name="topic" class="form-input form-select">
+                                <option value="Support">Support</option>
+                                <option value="Ideen & Vorschläge">Ideen & Vorschläge</option>
+                                <option value="Fehler melden">Fehler melden</option>
+                                <option value="Feedback">Feedback</option>
+                                <option value="Sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Nachricht *</label>
+                            <textarea id="message" name="message" required placeholder="Deine Nachricht..." rows="6" class="form-input form-textarea"></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+                        
+                        <button type="submit" class="form-submit-btn" id="submitBtn">
+                            <span class="btn-text">Nachricht senden</span>
+                            <span class="btn-loader" style="display: none;">
+                                <span class="spinner"></span>
+                            </span>
+                        </button>
+                        
+                        <div id="formSuccess" class="form-message form-success" style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p>Deine Nachricht wurde erfolgreich gesendet! Wir melden uns schnellstmöglich bei dir.</p>
+                        </div>
+                        
+                        <div id="formError" class="form-message form-error" style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p id="formErrorMessage">Es ist ein Fehler aufgetreten. Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.</p>
+                        </div>
+                    </form>
+                    
+                    <div class="contact-info">
+                        <h3>Direkter Kontakt</h3>
+                        <p>Du kannst uns auch direkt per E-Mail erreichen:</p>
+                        <p class="contact-email">
+                            <a href="mailto:info@laionex.com">info@laionex.com</a>
+                        </p>
+                        <p class="contact-note">Wir bemühen uns, alle Anfragen so schnell wie möglich zu beantworten.</p>
+                        <p class="legal-date"><em>Stand: Januar 2026</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="/assets/blitzerbot-logo.png" alt="BlitzerBot - Blitzerwarnungen App Logo" class="logo-img" width="50" height="50">
+                    </div>
+                    <p class="footer-tagline">Die führende App zum Vermeiden von Blitzern.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#download">Download</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="/#about">Über uns</a></li>
+                        <li><a href="/kontakt.html">Support</a></li>
+                        <li><a href="/datenschutz.html">Datenschutz</a></li>
+                        <li><a href="/nutzungsbedingungen.html">AGB</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Social Media</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                        <a href="#" aria-label="Facebook">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BlitzerBot. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js?v=2" defer></script>
+    <script src="/contact-form.js?v=1" defer></script>
+</body>
+</html>
