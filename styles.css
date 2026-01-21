@@ -294,8 +294,7 @@ body {
 
 .store-badge {
     height: 60px;
-    width: auto;
-    max-width: 200px;
+    width: 200px;
     object-fit: contain;
     object-position: center;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
@@ -304,12 +303,12 @@ body {
 
 .app-store-badge .store-badge {
     height: 60px;
-    max-width: 200px;
+    width: 200px;
 }
 
 .play-store-badge .store-badge {
     height: 60px;
-    max-width: 200px;
+    width: 200px;
 }
 
 .store-badge:hover {
@@ -497,17 +496,7 @@ body {
 }
 
 .feature-badge {
-    display: inline-block;
-    padding: 6px 12px;
-    background: rgba(255, 138, 0, 0.1);
-    border: 1px solid rgba(255, 138, 0, 0.3);
-    border-radius: 6px;
-    color: var(--primary-orange);
-    font-size: 12px;
-    font-weight: 600;
-    width: fit-content;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display: none;
 }
 
 .feature-showcase-content h2,
@@ -706,8 +695,7 @@ body {
 
 .download-buttons .store-badge {
     height: 70px;
-    width: auto;
-    max-width: 220px;
+    width: 220px;
     object-fit: contain;
     object-position: center;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
@@ -716,12 +704,12 @@ body {
 
 .download-buttons .app-store-badge .store-badge {
     height: 70px;
-    max-width: 220px;
+    width: 220px;
 }
 
 .download-buttons .play-store-badge .store-badge {
     height: 70px;
-    max-width: 220px;
+    width: 220px;
 }
 
 .download-buttons .store-badge:hover {

@@ -192,10 +192,121 @@ document.querySelectorAll('section').forEach(section => {
     revealObserver.observe(section);
 });
 
+// ============================================
+// DEVICE DETECTION & SMART DOWNLOAD
+// ============================================
+
+function detectDevice() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    // iOS Detection
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return 'ios';
+    }
+    
+    // Android Detection
+    if (/android/i.test(userAgent)) {
+        return 'android';
+    }
+    
+    // Default: show both or detect from other signals
+    return 'unknown';
+}
+
+function getStoreUrl(device) {
+    const appStoreUrl = 'https://apps.apple.com/app/blitzerbot';
+    const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.blitzerbot';
+    
+    switch(device) {
+        case 'ios':
+            return appStoreUrl;
+        case 'android':
+            return playStoreUrl;
+        default:
+            // Fallback: scroll to download section or show both
+            return '#download';
+    }
+}
+
+// Smart Download Button Handler
+function setupSmartDownloadButtons() {
+    const device = detectDevice();
+    
+    // Header Download Button
+    const headerDownloadBtn = document.querySelector('.smart-download-btn');
+    if (headerDownloadBtn) {
+        headerDownloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = getStoreUrl(device);
+            
+            if (url.startsWith('http')) {
+                // Direct redirect to store
+                window.open(url, '_blank', 'noopener,noreferrer');
+            } else {
+                // Scroll to download section
+                const target = document.querySelector(url);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    }
+    
+    // Footer Download Link
+    const footerDownloadLink = document.querySelector('a[href="#download"]');
+    if (footerDownloadLink && footerDownloadLink.closest('footer')) {
+        footerDownloadLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = getStoreUrl(device);
+            
+            if (url.startsWith('http')) {
+                window.open(url, '_blank', 'noopener,noreferrer');
+            } else {
+                const target = document.querySelector(url);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    }
+    
+    // Optional: Highlight relevant store button based on device
+    if (device === 'ios') {
+        const iosButtons = document.querySelectorAll('.app-store-badge');
+        iosButtons.forEach(btn => {
+            btn.style.opacity = '1';
+            btn.style.transform = 'scale(1.05)';
+        });
+        const androidButtons = document.querySelectorAll('.play-store-badge');
+        androidButtons.forEach(btn => {
+            btn.style.opacity = '0.7';
+        });
+    } else if (device === 'android') {
+        const androidButtons = document.querySelectorAll('.play-store-badge');
+        androidButtons.forEach(btn => {
+            btn.style.opacity = '1';
+            btn.style.transform = 'scale(1.05)';
+        });
+        const iosButtons = document.querySelectorAll('.app-store-badge');
+        iosButtons.forEach(btn => {
+            btn.style.opacity = '0.7';
+        });
+    }
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     // Add loaded class to body for CSS transitions
     document.body.classList.add('loaded');
+    
+    // Setup smart download buttons
+    setupSmartDownloadButtons();
     
     // Trigger initial animations
     setTimeout(() => {
