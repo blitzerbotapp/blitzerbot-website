@@ -78,7 +78,7 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0;
     font-size: 24px;
     font-weight: 700;
     color: var(--primary-text);
@@ -86,9 +86,13 @@ body {
 }
 
 .logo-img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
+}
+
+.logo-text {
+    display: none;
 }
 
 .nav-links {
@@ -150,7 +154,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 120px;
     overflow: hidden;
 }
 
@@ -271,46 +275,39 @@ body {
     margin-bottom: 60px;
     flex-wrap: wrap;
     animation: fadeInUp 0.8s ease 0.8s both;
-}
-
-.btn-download {
-    display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 24px;
-    background: var(--primary-text);
-    color: var(--dark-bg);
-    border-radius: 12px;
+}
+
+.app-store-badge,
+.play-store-badge {
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    line-height: 0;
 }
 
-.btn-download:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+.app-store-badge:hover,
+.play-store-badge:hover {
+    transform: translateY(-3px) scale(1.05);
+    opacity: 0.9;
 }
 
-.btn-download img {
-    width: 24px;
-    height: 24px;
+.store-badge {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    transition: filter 0.3s ease;
 }
 
-.btn-download div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.store-badge:hover {
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.4));
 }
 
-.btn-label {
-    font-size: 11px;
-    opacity: 0.7;
-}
-
-.btn-platform {
-    font-size: 16px;
-    font-weight: 700;
+@media (max-width: 768px) {
+    .store-badge {
+        height: 50px;
+    }
 }
 
 .hero-image {
@@ -318,7 +315,7 @@ body {
 }
 
 .phone-mockup {
-    max-width: 400px;
+    max-width: 450px;
     margin: 0 auto;
     position: relative;
 }
@@ -344,8 +341,13 @@ body {
 .mockup-img {
     width: 100%;
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.mockup-img:hover {
+    transform: scale(1.02);
 }
 
 @keyframes fadeInUp {
@@ -515,13 +517,14 @@ body {
 .feature-showcase-image img {
     width: 100%;
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-showcase-image:hover img {
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 138, 0, 0.2);
 }
 
 /* ============================================
@@ -670,30 +673,39 @@ body {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-}
-
-.btn-download-large {
-    display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 18px 32px;
-    background: var(--primary-text);
-    color: var(--dark-bg);
-    border-radius: 16px;
+}
+
+.download-buttons .app-store-badge,
+.download-buttons .play-store-badge {
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    line-height: 0;
 }
 
-.btn-download-large:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+.download-buttons .app-store-badge:hover,
+.download-buttons .play-store-badge:hover {
+    transform: translateY(-3px) scale(1.05);
+    opacity: 0.9;
 }
 
-.btn-download-large img {
-    width: 32px;
-    height: 32px;
+.download-buttons .store-badge {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    transition: filter 0.3s ease;
+}
+
+.download-buttons .store-badge:hover {
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.4));
+}
+
+@media (max-width: 768px) {
+    .download-buttons .store-badge {
+        height: 60px;
+    }
 }
 
 /* ============================================
@@ -791,11 +803,16 @@ body {
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0;
     font-size: 20px;
     font-weight: 700;
     color: var(--primary-text);
     margin-bottom: 16px;
+}
+
+.footer-logo .logo-img {
+    width: 50px;
+    height: 50px;
 }
 
 .footer-tagline {
@@ -924,20 +941,12 @@ body {
     
     .hero-buttons {
         flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .btn-download {
-        justify-content: center;
+        align-items: center;
     }
     
     .download-buttons {
         flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .btn-download-large {
-        justify-content: center;
+        align-items: center;
     }
 }
 

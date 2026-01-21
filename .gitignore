@@ -5,8 +5,8 @@
 .Spotlight-V100
 .Trashes
 
-# Symlinks (mockups ist ein Symlink zu einem externen Ordner)
-mockups
+# Mockups werden jetzt direkt kopiert, nicht mehr ignoriert
+# mockups
 
 # Editor
 .vscode/
