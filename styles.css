@@ -53,6 +53,22 @@ html {
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling for all browsers */
+* {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        scroll-behavior: auto;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 body {
@@ -131,6 +147,7 @@ body {
     display: flex;
     align-items: center;
     gap: 32px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links a {
@@ -163,18 +180,46 @@ body {
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 1001;
 }
 
 .mobile-menu-toggle span {
-    width: 25px;
-    height: 2px;
+    width: 28px;
+    height: 3px;
     background: var(--primary-text);
-    transition: all 0.3s ease;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: block;
+    position: relative;
+}
+
+.mobile-menu-toggle.active span {
+    background: var(--primary-text);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+    top: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+    top: 0;
 }
 
 /* ============================================
@@ -316,6 +361,9 @@ body {
     transition: transform 0.3s ease, opacity 0.3s ease;
     text-decoration: none;
     line-height: 0;
+    width: 200px;
+    height: 60px;
+    position: relative;
 }
 
 .app-store-badge:hover,
@@ -331,16 +379,19 @@ body {
     object-position: center;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
     transition: filter 0.3s ease;
+    display: block;
 }
 
 .app-store-badge .store-badge {
     height: 60px;
     width: 200px;
+    object-fit: contain;
 }
 
 .play-store-badge .store-badge {
     height: 60px;
     width: 200px;
+    object-fit: contain;
 }
 
 .store-badge:hover {
@@ -350,6 +401,24 @@ body {
 @media (max-width: 768px) {
     .store-badge {
         height: 50px;
+        width: 167px;
+    }
+    
+    .app-store-badge,
+    .play-store-badge {
+        width: 167px;
+        height: 50px;
+    }
+    
+    .download-buttons .store-badge {
+        height: 60px;
+        width: 200px;
+    }
+    
+    .download-buttons .app-store-badge,
+    .download-buttons .play-store-badge {
+        width: 200px;
+        height: 60px;
     }
 }
 
@@ -717,6 +786,9 @@ body {
     transition: transform 0.3s ease, opacity 0.3s ease;
     text-decoration: none;
     line-height: 0;
+    width: 220px;
+    height: 70px;
+    position: relative;
 }
 
 .download-buttons .app-store-badge:hover,
@@ -732,16 +804,19 @@ body {
     object-position: center;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
     transition: filter 0.3s ease;
+    display: block;
 }
 
 .download-buttons .app-store-badge .store-badge {
     height: 70px;
     width: 220px;
+    object-fit: contain;
 }
 
 .download-buttons .play-store-badge .store-badge {
     height: 70px;
     width: 220px;
+    object-fit: contain;
 }
 
 .download-buttons .store-badge:hover {
@@ -916,16 +991,20 @@ body {
         top: 80px;
         left: 0;
         right: 0;
-        background: var(--dark-bg);
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(20px);
         flex-direction: column;
-        padding: 20px;
-        gap: 20px;
+        padding: 30px 20px;
+        gap: 0;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
     }
     
     .nav-links.active {
@@ -936,25 +1015,37 @@ body {
     
     .nav-links a {
         font-size: 18px;
-        padding: 12px 0;
+        padding: 16px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        width: 100%;
+        text-align: left;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+        padding-left: 10px;
+        color: var(--primary-orange);
+    }
+    
+    .nav-links a:last-child {
+        border-bottom: none;
+        margin-top: 10px;
+        padding: 16px;
+        text-align: center;
+        background: var(--primary-orange);
+        border-radius: 8px;
+    }
+    
+    .nav-links a:last-child:hover {
+        padding-left: 16px;
+        background: var(--amber);
     }
     
     .mobile-menu-toggle {
         display: flex;
     }
     
-    .mobile-menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-    }
-    
-    .mobile-menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .mobile-menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
+    /* Mobile menu toggle animation is now in main styles */
     
     .hero-stats {
         gap: 30px;

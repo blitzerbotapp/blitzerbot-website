@@ -2,15 +2,35 @@
 // BLITZERBOT WEBSITE JAVASCRIPT
 // ============================================
 
-// Smooth scroll for anchor links
+// Smooth scroll for anchor links with better handling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '#!') {
+            return; // Don't prevent default for empty anchors
+        }
+        
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
+        
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            // Close mobile menu if open
+            const mobileMenu = document.querySelector('.nav-links');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                if (mobileToggle) mobileToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Calculate offset for fixed navbar
+            const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+            
+            // Smooth scroll
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
         }
     });
