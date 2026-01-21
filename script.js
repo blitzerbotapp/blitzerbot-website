@@ -155,24 +155,57 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Mobile menu toggle
+// Mobile menu toggle with smooth animations
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileMenuToggle.classList.toggle('active');
+if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isActive = navLinks.classList.contains('active');
+        
+        if (isActive) {
+            // Close menu
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        } else {
+            // Open menu
+            navLinks.classList.add('active');
+            mobileMenuToggle.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+    
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('active') && 
+            !navLinks.contains(e.target) && 
+            !mobileMenuToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 }
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-        navLinks.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-    }
-});
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
