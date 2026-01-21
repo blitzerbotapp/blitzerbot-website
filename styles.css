@@ -295,9 +295,21 @@ body {
 .store-badge {
     height: 60px;
     width: auto;
+    max-width: 200px;
     object-fit: contain;
+    object-position: center;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
     transition: filter 0.3s ease;
+}
+
+.app-store-badge .store-badge {
+    height: 60px;
+    max-width: 200px;
+}
+
+.play-store-badge .store-badge {
+    height: 60px;
+    max-width: 200px;
 }
 
 .store-badge:hover {
@@ -695,9 +707,21 @@ body {
 .download-buttons .store-badge {
     height: 70px;
     width: auto;
+    max-width: 220px;
     object-fit: contain;
+    object-position: center;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
     transition: filter 0.3s ease;
+}
+
+.download-buttons .app-store-badge .store-badge {
+    height: 70px;
+    max-width: 220px;
+}
+
+.download-buttons .play-store-badge .store-badge {
+    height: 70px;
+    max-width: 220px;
 }
 
 .download-buttons .store-badge:hover {
