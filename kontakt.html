@@ -73,76 +73,89 @@
                 <h1>Kontakt & Support</h1>
                 <p class="contact-intro">Du hast Fragen zu BlitzerBot, ein technisches Problem oder Feedback zur App? Wir helfen dir gerne weiter.</p>
                 
-                <div class="contact-form-wrapper">
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-header">
-                            <h2>Wir freuen uns auf deine Nachricht!</h2>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="firstName">Vorname *</label>
-                            <input type="text" id="firstName" name="firstName" required placeholder="Dein Vorname" class="form-input">
-                            <span class="error-message" id="firstNameError"></span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="lastName">Nachname</label>
-                            <input type="text" id="lastName" name="lastName" placeholder="Dein Nachname (optional)" class="form-input">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">E-Mail *</label>
-                            <input type="email" id="email" name="email" required placeholder="E-Mail-Adresse" class="form-input">
-                            <span class="error-message" id="emailError"></span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="topic">Thema</label>
-                            <select id="topic" name="topic" class="form-input form-select">
-                                <option value="Support">Support</option>
-                                <option value="Ideen & Vorschläge">Ideen & Vorschläge</option>
-                                <option value="Fehler melden">Fehler melden</option>
-                                <option value="Feedback">Feedback</option>
-                                <option value="Sonstiges">Sonstiges</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Nachricht *</label>
-                            <textarea id="message" name="message" required placeholder="Deine Nachricht..." rows="6" class="form-input form-textarea"></textarea>
-                            <span class="error-message" id="messageError"></span>
-                        </div>
-                        
-                        <button type="submit" class="form-submit-btn" id="submitBtn">
-                            <span class="btn-text">Nachricht senden</span>
-                            <span class="btn-loader" style="display: none;">
-                                <span class="spinner"></span>
-                            </span>
-                        </button>
-                        
-                        <div id="formSuccess" class="form-message form-success" style="display: none;">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <p>Deine Nachricht wurde erfolgreich gesendet! Wir melden uns schnellstmöglich bei dir.</p>
-                        </div>
-                        
-                        <div id="formError" class="form-message form-error" style="display: none;">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <p id="formErrorMessage">Es ist ein Fehler aufgetreten. Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.</p>
-                        </div>
-                    </form>
+                <div class="contact-wrapper">
+                    <div class="contact-form-container">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-header">
+                                <h2>Wir freuen uns auf deine Nachricht!</h2>
+                                <p class="form-subtitle">Fülle das Formular aus und wir melden uns schnellstmöglich bei dir.</p>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Vorname *</label>
+                                    <input type="text" id="firstName" name="firstName" required placeholder="Dein Vorname" class="form-input">
+                                    <span class="error-message" id="firstNameError"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lastName">Nachname</label>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Dein Nachname (optional)" class="form-input">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">E-Mail *</label>
+                                <input type="email" id="email" name="email" required placeholder="deine.email@beispiel.de" class="form-input">
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="topic">Thema</label>
+                                <select id="topic" name="topic" class="form-input form-select">
+                                    <option value="Support">Support</option>
+                                    <option value="Ideen & Vorschläge">Ideen & Vorschläge</option>
+                                    <option value="Fehler melden">Fehler melden</option>
+                                    <option value="Feedback">Feedback</option>
+                                    <option value="Sonstiges">Sonstiges</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Nachricht *</label>
+                                <textarea id="message" name="message" required placeholder="Deine Nachricht..." rows="6" class="form-input form-textarea"></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
+                            
+                            <button type="submit" class="form-submit-btn" id="submitBtn">
+                                <span class="btn-text">Nachricht senden</span>
+                                <span class="btn-loader" style="display: none;">
+                                    <span class="spinner"></span>
+                                </span>
+                            </button>
+                            
+                            <div id="formSuccess" class="form-message form-success" style="display: none;">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <p>Deine Nachricht wurde erfolgreich gesendet! Wir melden uns schnellstmöglich bei dir.</p>
+                            </div>
+                            
+                            <div id="formError" class="form-message form-error" style="display: none;">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <p id="formErrorMessage">Es ist ein Fehler aufgetreten. Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.</p>
+                            </div>
+                        </form>
+                    </div>
                     
-                    <div class="contact-info">
+                    <div class="contact-info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <h3>Direkter Kontakt</h3>
                         <p>Du kannst uns auch direkt per E-Mail erreichen:</p>
-                        <p class="contact-email">
-                            <a href="mailto:info@laionex.com">info@laionex.com</a>
-                        </p>
+                        <a href="mailto:info@laionex.com" class="contact-email-link">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            info@laionex.com
+                        </a>
                         <p class="contact-note">Wir bemühen uns, alle Anfragen so schnell wie möglich zu beantworten.</p>
-                        <p class="legal-date"><em>Stand: Januar 2026</em></p>
                     </div>
                 </div>
             </div>
