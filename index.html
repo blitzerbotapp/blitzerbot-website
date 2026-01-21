@@ -55,6 +55,14 @@
     
     <!-- Critical CSS - Loads immediately -->
     <style>
+        :root {
+            --primary-blue: #1E3A8A;
+            --primary-orange: #FF8A00;
+            --dark-bg: #0F172A;
+            --secondary-dark: #020617;
+            --primary-text: #FFFFFF;
+            --secondary-text: #E5E7EB;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -64,6 +72,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
         .navbar {
             position: fixed;
@@ -98,6 +107,7 @@
             align-items: center;
             padding-top: 120px;
             overflow: hidden;
+            background: linear-gradient(180deg, #0A0E27 0%, #1A1F3A 50%, #2A1F3A 100%);
         }
         .hero-content {
             position: relative;
@@ -110,6 +120,7 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 24px;
+            color: #FFFFFF;
         }
         .hero-subtitle {
             font-size: clamp(18px, 2.5vw, 22px);
@@ -117,6 +128,29 @@
             max-width: 700px;
             margin: 0 auto 50px;
             line-height: 1.6;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .store-badge {
+            height: 60px;
+            width: 200px;
+            object-fit: contain;
+        }
+        section {
+            padding: 100px 20px;
+        }
+        .section-title {
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #FFFFFF;
         }
     </style>
     
