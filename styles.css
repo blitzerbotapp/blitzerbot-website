@@ -107,6 +107,8 @@ body {
     font-weight: 700;
     color: var(--primary-text);
     text-decoration: none;
+    min-width: 60px;
+    min-height: 60px;
 }
 
 .logo-img {
